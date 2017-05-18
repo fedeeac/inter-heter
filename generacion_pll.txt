@@ -1,0 +1,17 @@
+>> angulo=angle(fur1);
+>> angulo=angulo+pi/2;
+>> angulo=atan2(sin(angulo),cos(angulo));
+>> Q=abs(fur1).*exp(i*angulo);
+>> iQ=ifft(Q);
+>> figure, plot(abs(Q))
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(real(iQ),'r')
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(imag(iQ),'r')
+>> figure, plot(imag(iQ),'r'), hold on, plot(squeeze(r1(:,2)))
+>> angulo=angle(fur1);
+>> angulo(1:end/2)=angulo(1:end/2)-pi/2;
+>> angulo(end/2+1:end)=angulo(1:end/2)+pi/2;
+>> angulo(end/2+1:end)=angulo(end/2+1:end)+pi/2;
+>> angulo=atan2(sin(angulo),cos(angulo));
+>> Q=abs(fur1).*exp(i*angulo);
+>> iQ=ifft(Q);
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(real(iQ),'r')

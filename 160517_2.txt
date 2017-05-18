@@ -1,0 +1,126 @@
+>> new
+
+ans =
+
+  -50.6407
+
+
+ans =
+
+   60.1392
+
+
+ans =
+
+  -36.7848
+
+>> figure, plot(t,I)
+>> Iref=um2;
+>> figure, plot(t,Iref)
+>> max(t)-min(t)
+
+ans =
+
+   2.4990e-06
+
+>> fI=fft(I);
+>> figure, plot(abs(fI))
+>> figure, plot(abs(fft(Iref)))
+>> fIfilt=fI;
+>> fIfilt(1:175)=0;
+>> fIfilt(185:end)=0;
+>> figure, plot(abs(fIfilt))
+>> fase=angle(ifft(fIfilt));
+>> figure, plot(fase)
+>> faseuw=unwrap(fase);
+>> figure, plot(faseuw)
+>> fIref=fft(Iref);
+>> fIreffilt=fIref;
+>> figure, plot(abs(fIreffilt))
+>> fIreffilt(1:175)=0;
+>> fIreffilt(185:end)=0;
+>> faseref=angle(ifft(fIreffilt));
+>> faserefuw=unwrap(faseref);
+>> fase_rec=faseuw-faserefuw;
+>> figure, plot(fase_rec)
+>> figure, plot(t,fase_rec)
+>> figure, plot(t,fase_rec*4*pi/632.8e-9)
+>> figure, plot(t,fase_rec*632.8e-9/(4*pi))
+>> figure, plot(t,(fase_rec-mean(fase_rec))*632.8e-9/(4*pi))
+>> figure, plot(phi1)
+>> phi1uw=unwrap(phi1);
+>> phi1uw=unwrap(phi1uw);
+>> phi1uw=unwrap(phi1);
+>> figure, plot(phi1uw)
+>> figure, plot(fft(ur1))
+Undefined function or variable 'ur1'.
+ 
+>> fur1=fft(ur1);
+Undefined function or variable 'ur1'.
+ 
+>> fur1=fft(r1(:,2));
+>> Ir1=ifft(fur1*exp(i*pi/2));
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(Ir1,'r')
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(real(Ir1),'r')
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(imag(Ir1),'r')
+>> figure, plot(fur1)
+>> figure, plot(abs(fur1))
+>> angle(fur1)=angle(fur1)+pi/2;
+Subscript indices must either be real positive integers or logicals.
+ 
+>> angle(fur1(:))=angle(fur1(:))+pi/2;
+Subscript indices must either be real positive integers or logicals.
+ 
+>> angle(fur1(1:end))=angle(fur1(1:end))+pi/2;
+Subscript indices must either be real positive integers or logicals.
+ 
+>> figure, plot(angle(fur1))
+>> angle(fur1)=angle(fur1)+pi/2;
+Subscript indices must either be real positive integers or logicals.
+ 
+>> angulo=angle(fur1);
+>> angulo=angulo+pi/2;
+>> angulo=atan2(sin(angulo),cos(angulo));
+>> Q=abs(fur1).*exp(i*angulo);
+>> iQ=ifft(Q);
+>> figure, plot(abs(Q))
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(real(iQ),'r')
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(imag(iQ),'r')
+>> figure, plot(imag(iQ),'r'), hold on, plot(squeeze(r1(:,2)))
+>> angulo=angle(fur1);
+>> angulo(1:end/2)=angulo(1:end/2)-pi/2;
+>> angulo(end/2+1:end)=angulo(1:end/2)+pi/2;
+>> angulo(end/2+1:end)=angulo(end/2+1:end)+pi/2;
+>> angulo=atan2(sin(angulo),cos(angulo));
+>> Q=abs(fur1).*exp(i*angulo);
+>> iQ=ifft(Q);
+>> figure, plot(squeeze(r1(:,2))), hold on, plot(real(iQ),'r')
+>> fur1filt=fur1;
+>> fur1filt(end/2:end)=0;
+>> figure, plot(real(fur1filt)), hold on, plot(imag(fur1filt))
+>> figure, plot(real(ifft(fur1filt))), hold on, plot(imag(ifft(fur1filt)))
+>> I=real(ifft(fur1filt));
+>> Q=imag(ifft(fur1filt));
+>> new
+Error: File: new.m Line: 38 Column: 24
+Unbalanced or unexpected parenthesis or bracket.
+ 
+>> new
+>> phi1uw=unwrap(phi1);
+>> figure, plot(phi1uw)
+>> figure, plot(Ir1), hold on, plot(Qr1)
+>> figure, plot(Ir2), hold on, plot(Qr2)
+>> figure, plot(Ir3), hold on, plot(Qr3)
+>> figure(um1n)
+Error using figure
+Invalid convenience arg handle
+ 
+>> figure, plot(um1)
+>> figure, plot(um1n)
+>> figure, plot(1/um1n)
+>> figure, plot(1./um1n)
+>> new
+>> figure, plot(fft(If1))
+>> figure, plot(abs(fft(If1)))
+>> figure, plot(abs(fft(If1)))
+>> figure, plot(abs(fft(If1)))
